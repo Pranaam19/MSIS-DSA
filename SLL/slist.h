@@ -10,6 +10,8 @@ struct __slist__{
     Node *head;
     Node *tail;
     int32_t length;
+    int32_t minn;  // Added to track min
+    int32_t maxx;
     };
 struct __node__{
     int32_t data;
@@ -24,6 +26,9 @@ List * slist_add_head(List * list,int32_t data);
 List * slist_add_tail(List * list,int32_t data);
 List * slist_delete_head(List * list);
 List * slist_delete_tail(List * list);
+List * slist_min_max(List *list);
+List * slist_reverse(List * list);
+List * display(List * list);
 
 
 

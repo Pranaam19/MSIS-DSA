@@ -2,6 +2,7 @@
 #define SLIST_C_INCLUDED
 
 #include<stdio.h>
+#include <limits.h>
 #include<stdlib.h>
 #include<stddef.h>
 #include<assert.h>
@@ -14,6 +15,8 @@ List * slist_new()
     list->head=NULL;
     list->tail=NULL;
     list->length=0;
+    list->minn = 1000;
+    list->maxx = 0;
     return list;
 }
 
@@ -122,6 +125,67 @@ List * slist_delete_tail(List * list)
     --list->length;
     }
     return list;
+}
+
+List * slist_min_max(List *list)
+{
+    if(list->head==NULL){
+            return list;
+    }
+    Node *cur = list->head;
+
+    int32_t minn = cur->data;
+    int32_t maxx = cur->data;
+    cur=cur->next;
+
+    while(cur!=NULL){
+        if(cur->data>maxx){
+            maxx = cur->data;
+        }
+        if(cur->data<minn){
+            minn = cur->data;
+        }
+        cur=cur->next;
+        list->minn = minn;
+        list->maxx = maxx;
+    }
+    return list;
+}
+
+List * slist_reverse(List * list)
+{
+    Node * prev = NULL;
+    Node * current = list->head;
+    Node * next;
+    list->tail = list->head;
+    while(current!=NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    list->head = prev;
+}
+
+List * display(List * list){
+    Node * cur = list->head;
+
+    if(list->head == NULL){
+        printf("The list is empty\n");
+        return list;
+    }
+    while(cur!=NULL){
+        printf("%d\n",cur->data);
+        cur=cur->next;
+    }
+    printf("NULL\n");
+
+    return list;
+}
+
+List * display_nth_end(List * list, int32_t n)
+{
+    
 }
 
 
