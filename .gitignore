@@ -1,0 +1,43 @@
+# Compiled C objects and binaries
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.lo
+*.la
+*.class
+
+# Build directories
+build/
+bin/
+Debug/
+Release/
+out/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Local project generated files
+*.ilk
+*.pdb
+*.pch
+*.idb
