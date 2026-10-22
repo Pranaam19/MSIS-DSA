@@ -18,6 +18,12 @@ Stack *stack_new(uint32_t size)
 
     return stk;
 }
+//simpler implementation of stack_new function (a not pointer implementation of stack_new function)
+// Stack stack_new(uint32_t size){
+//  size = (size>0 && size<MAX_DEPTH)?size:MAX_DEPTH;
+//  Stack stk = {size,-1,{0}};
+//  return stk;
+// }
 
 uint32_t stack_full(const Stack *stk)
 {
@@ -66,7 +72,7 @@ Stack *stack_pop(Stack *stk, StackResult *result)
     else
     {
         result->data = stk->data[stk->top];
-        stk->top--;
+        --stk->top;
 
         result->status = STACK_OK;
     }
